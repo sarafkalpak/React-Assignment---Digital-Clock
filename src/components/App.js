@@ -11,9 +11,16 @@ class App extends Component {
 // //             </>
 // //         )
 // //     }
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = { time: new Date() }; 
+    }
+    render() {
+        return (
+            <div className="Clock">
+                <h3 id="time">{this.getTimeString()}</h3>
+            </div>
+        );
     }
 
     componentDidMount() { 
@@ -41,18 +48,11 @@ class App extends Component {
     }
 
     padNumberToTwoDigits(num) {
-        // return (num < 10 ? ("0" + num) : ("" + num));
-        return `${num < 10 ? "0" : ""}${num}`   //templeate string
+        return `${num < 10 ? "0" : ""}${num}`   
 
     }
 
-    render() {
-        return (
-            <div className="Clock">
-                <h3 id="time">{this.getTimeString()}</h3>
-            </div>
-        );
-    }
+   
 }
 
 
